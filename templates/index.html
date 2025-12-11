@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Acquisition et Ingestion des Données - Cours</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font (optionnel) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <!-- Version Flask : -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"></head>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+
+    <!-- Version fichier statique classique : -->
+    
+
+<body>
+    <header class="topbar">
+        <div class="logo">DataIngest<span class="accent">Lab</span></div>
+        <nav class="navbar">
+            <a href="#intro">Accueil</a>
+            <a href="#modules">Modules</a>
+            <a href="#dataset">Dataset</a>
+            <a href="#resources">Ressources</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="intro">
+        <div class="hero-content">
+            <h1>Acquisition &amp; Ingestion des Données</h1>
+            <p>
+                Apprends à collecter, nettoyer et ingérer des données depuis des fichiers, des APIs 
+                et le web pour alimenter tes pipelines de data engineering.
+            </p>
+            <div class="hero-actions">
+                <button id="btn-start" class="btn primary">Commencer le cours</button>
+                <button id="btn-scroll-modules" class="btn ghost">Voir les modules</button>
+            </div>
+            <div class="hero-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Web Scraping</span>
+                <span class="tag">ETL</span>
+            </div>
+        </div>
+        <div class="hero-card">
+            <h2>Résumé du cours</h2>
+            <ul>
+                <li>Introduction à l’acquisition des données</li>
+                <li>Ingestion depuis CSV, JSON, APIs, bases de données</li>
+                <li>Web scraping avec Python</li>
+                <li>Automatisation d’un mini pipeline d’ingestion</li>
+            </ul>
+            <div class="hero-progress">
+                <span>Progression :</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 25%;" id="course-progress"></div>
+                </div>
+                <span class="progress-label" id="progress-label">25% - Module 2</span>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- MODULES -->
+        <section class="section" id="modules">
+            <div class="section-header">
+                <h2>Modules du cours</h2>
+                <p>Explore les différentes étapes de l’acquisition et de l’ingestion des données.</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="theorie">Théorie</button>
+                <button class="filter-btn" data-filter="pratique">Pratique</button>
+                <button class="filter-btn" data-filter="projet">Projet</button>
+            </div>
+
+            <div class="cards-grid" id="modules-grid">
+                <!-- Module 1 -->
+                <article class="card" data-type="theorie">
+                    <h3>Module 1 – Introduction à l’acquisition</h3>
+                    <p>
+                        Définitions, vocabulaire, architecture globale d’un pipeline de données.
+                        Différence entre acquisition, ingestion, transformation et stockage.
+                    </p>
+                    <ul class="card-meta">
+                        <li>Durée : 1h30</li>
+                        <li>Niveau : Débutant</li>
+                        <li>Support : PDF + slides</li>
+                    </ul>
+                    <button class="btn small secondary">Voir le contenu</button>
+                </article>
+
+                <!-- Module 2 -->
+                <article class="card" data-type="pratique">
+                    <h3>Module 2 – Données structurées (CSV / Excel)</h3>
+                    <p>
+                        Import de fichiers CSV/Excel avec Python, gestion de l’encodage, 
+                        schéma des colonnes, vérification basique de la qualité des données.
+                    </p>
+                    <ul class="card-meta">
+                        <li>Durée : 2h</li>
+                        <li>Niveau : Intermédiaire</li>
+                        <li>Support : Notebook Jupyter</li>
+                    </ul>
+                    <button class="btn small secondary">Télécharger le notebook</button>
+                </article>
+
+                <!-- Module 3 -->
+                <article class="card" data-type="pratique">
+                    <h3>Module 3 – APIs &amp; JSON</h3>
+                    <p>
+                        Utilisation de requêtes HTTP, authentification, parsing de JSON,
+                        pagination, mise en forme des données pour l’ingestion.
+                    </p>
+                    <ul class="card-meta">
+                        <li>Durée : 2h</li>
+                        <li>Niveau : Intermédiaire</li>
+                        <li>Support : Code Python</li>
+                    </ul>
+                    <button class="btn small secondary">Voir un exemple d’API</button>
+                </article>
+
+                <!-- Module 4 -->
+                <article class="card" data-type="pratique">
+                    <h3>Module 4 – Web Scraping</h3>
+                    <p>
+                        Scraper une page web simple avec <code>requests</code> et 
+                        <code>BeautifulSoup</code>, extraire des tableaux et des textes structurés.
+                    </p>
+                    <ul class="card-meta">
+                        <li>Durée : 2h30</li>
+                        <li>Niveau : Intermédiaire</li>
+                        <li>Support : Projet guidé</li>
+                    </ul>
+                    <button class="btn small secondary">Ouvrir le projet</button>
+                </article>
+
+                <!-- Module 5 -->
+                <article class="card" data-type="theorie">
+                    <h3>Module 5 – Ingestion &amp; stockage</h3>
+                    <p>
+                        Concepts d’ETL/ELT, ingestion dans une base de données (SQL),
+                        création d’un schéma simple pour stocker les données collectées.
+                    </p>
+                    <ul class="card-meta">
+                        <li>Durée : 1h30</li>
+                        <li>Niveau : Intermédiaire</li>
+                        <li>Support : Slides</li>
+                    </ul>
+                    <button class="btn small secondary">Voir le schéma</button>
+                </article>
+
+                <!-- Module 6 -->
+                <article class="card" data-type="projet">
+                    <h3>Module 6 – Mini projet de pipeline</h3>
+                    <p>
+                        Construction d’un mini pipeline d’ingestion :
+                        source CSV + API, nettoyage, stockage dans une base et visualisation simple.
+                    </p>
+                    <ul class="card-meta">
+                        <li>Durée : 3h</li>
+                        <li>Niveau : Avancé</li>
+                        <li>Support : Code + rapport</li>
+                    </ul>
+                    <button class="btn small secondary">Voir les consignes</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- DATASET -->
+        <section class="section section-alt" id="dataset">
+            <div class="section-header">
+                <h2>Exemple de Dataset</h2>
+                <p>
+                    Exemple de données brutes issues d’un processus d’acquisition avant nettoyage.
+                </p>
+            </div>
+
+            <div class="dataset-wrapper">
+                <div class="dataset-header">
+                    <div>
+                        <h3>dataset_acquisition.csv</h3>
+                        <p>Extrait simulé des données collectées (avant ingestion).</p>
+                    </div>
+                    <button class="btn small" id="btn-toggle-dataset">Masquer / Afficher</button>
+                </div>
+
+                <div id="dataset-table-container">
+                    <table class="dataset-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Source</th>
+                                <th>Type</th>
+                                <th>Date_acquisition</th>
+                                <th>Qualité</th>
+                                <th>Nb_enregistrements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>capteurs_site_A.csv</td>
+                                <td>CSV</td>
+                                <td>2025-12-01</td>
+                                <td>Moyenne</td>
+                                <td>1 245</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>api.open-meteo.org</td>
+                                <td>API JSON</td>
+                                <td>2025-12-02</td>
+                                <td>Bonne</td>
+                                <td>432</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>scraping_news_site.html</td>
+                                <td>HTML</td>
+                                <td>2025-12-03</td>
+                                <td>Variable</td>
+                                <td>98</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>export_bdd_clients.sql</td>
+                                <td>SQL</td>
+                                <td>2025-12-04</td>
+                                <td>Bonne</td>
+                                <td>3 560</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>sensors_labo_B.xlsx</td>
+                                <td>Excel</td>
+                                <td>2025-12-05</td>
+                                <td>À vérifier</td>
+                                <td>780</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="dataset-note">
+                    * Ces données sont fictives mais représentatives de ce que tu peux rencontrer 
+                    dans un projet réel d’acquisition et d’ingestion de données.
+                </p>
+            </div>
+        </section>
+
+        <!-- RESSOURCES -->
+        <section class="section" id="resources">
+            <div class="section-header">
+                <h2>Ressources complémentaires</h2>
+                <p>Pour aller plus loin sur le cours et la mise en pratique.</p>
+            </div>
+
+            <div class="resources-grid">
+                <article class="resource-card">
+                    <h3>Documentation Python</h3>
+                    <p>Rappels sur les bases de Python pour manipuler les fichiers, les APIs et les structures de données.</p>
+                    <a href="https://docs.python.org/3/" target="_blank" class="link">Ouvrir la doc officielle</a>
+                </article>
+                <article class="resource-card">
+                    <h3>BeautifulSoup</h3>
+                    <p>Parser HTML, extraire des tableaux, des titres, des liens pour ton module de web scraping.</p>
+                    <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" class="link">Voir la documentation</a>
+                </article>
+                <article class="resource-card">
+                    <h3>Flask</h3>
+                    <p>Créer une mini API pour exposer les données ingérées à d’autres applications.</p>
+                    <a href="https://flask.palletsprojects.com/" target="_blank" class="link">Documentation Flask</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 – Cours Acquisition &amp; Ingestion des Données</p>
+        <p class="footer-note">Développé en Python &amp; Flask – Front personnalisé.</p>
+    </footer>
+
+    <!-- JS -->
+    <!-- Version Flask : -->
+    <!-- <script src="{{ url_for('static', filename='js/main.js') }}"></script> -->
+
+    <!-- Version fichier statique classique : -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
